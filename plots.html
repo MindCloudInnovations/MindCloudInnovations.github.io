@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <link rel="stylesheet" href="sources/css/style.css">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="./sources/images/logo.png"/>
+    <title>Plots</title>
+</head>
+<body>
+    <div class="vertical">
+        <div class="flex-container">
+            <div id="plot1"></div>
+            <div id="plot2"></div>
+        </div>
+        <div class="flex-container">
+            <div id="plot3"></div>
+            <div id="plot4"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        const weather = await d3.json("./sources/data/dummy_data.json");
+
+        const plot = Plot.plot({
+            style: "overflow: visible;",
+            color: {
+                type: "categorical",
+                scheme: "Tableau10",
+                legend: true
+            },
+            x: {
+                domain: [new Date("2023-11-01"), new Date("2023-11-30")],
+                grid: true
+            },
+            y: {
+                domain: [-1, 13],
+                grid: true,
+                transform: (t) => t / 10
+            },
+            marks: [
+                Plot.axisX({label: "Date"}),
+                Plot.axisY({label: "Temperature (°C)"}),
+                Plot.ruleY([0]),
+                Plot.lineY(weather, {x: "date", y: "TG", tip: "xy", stroke: "station_code"}),
+                Plot.text(weather, Plot.selectLast({x: "date", y: "TG", z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
+            ]
+        });
+        const div = document.querySelector("#plot1");
+        div.append(plot);
+    </script>
+
+    <script type="module">
+        const weather = await d3.json("./sources/data/dummy_data.json");
+
+        const plot = Plot.plot({
+            style: "overflow: visible;",
+            color: {
+                type: "categorical",
+                scheme: "Tableau10",
+                legend: true
+            },
+            x: {
+                domain: [new Date("2023-11-01"), new Date("2023-11-30")],
+                grid: true
+            },
+            y: {
+                grid: true
+            },
+            marks: [
+                Plot.axisX({label: "Date"}),
+                Plot.axisY({label: "Luminosity (lumen)"}),
+                Plot.ruleY([0]),
+                Plot.lineY(weather, {x: "date", y: "Q", tip: "xy", stroke: "station_code"}),
+                Plot.text(weather, Plot.selectLast({x: "date", y: "Q", z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
+            ]
+        });
+        const div = document.querySelector("#plot2");
+        div.append(plot);
+    </script>
+
+    <script type="module">
+        const weather = await d3.json("./sources/data/dummy_data.json");
+
+        const plot = Plot.plot({
+            style: "overflow: visible;",
+            color: {
+                type: "categorical",
+                scheme: "Tableau10",
+                legend: true
+            },
+            x: {
+                domain: [new Date("2023-11-01"), new Date("2023-11-30")],
+                grid: true
+            },
+            y: {
+                domain: [970, 1030],
+                grid: true,
+                transform: (t) => t / 10
+            },
+            marks: [
+                Plot.axisX({label: "Date"}),
+                Plot.axisY({label: "Pressure (hPa)"}),
+                Plot.ruleY([9700]),
+                Plot.lineY(weather, {x: "date", y: "PG", tip: "xy", stroke: "station_code"}),
+                Plot.text(weather, Plot.selectLast({x: "date", y: "PG", z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
+            ]
+        });
+        const div = document.querySelector("#plot3");
+        div.append(plot);
+    </script>
+
+    <script type="module">
+        const weather = await d3.json("./sources/data/dummy_data.json");
+
+        const plot = Plot.plot({
+            style: "overflow: visible;",
+            color: {
+                type: "categorical",
+                scheme: "Tableau10",
+                legend: true
+            },
+            x: {
+                domain: [new Date("2023-11-01"), new Date("2023-11-30")],
+                grid: true
+            },
+            y: {
+                grid: true,
+                domain: [65, 100],
+            },
+            marks: [
+                Plot.axisX({label: "Date"}),
+                Plot.axisY({label: "Humidity (%)"}),
+                Plot.ruleY([65]),
+                Plot.lineY(weather, {x: "date", y: "UG", tip: "xy", stroke: "station_code"}),
+                Plot.text(weather, Plot.selectLast({x: "date", y: "UG", z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
+            ]
+        });
+        const div = document.querySelector("#plot4");
+        div.append(plot);
+    </script>
+</body>
+</html>
