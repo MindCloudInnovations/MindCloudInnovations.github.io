@@ -1,0 +1,131 @@
+/* Set different properties on different screen size */
+@media screen and (max-width: 600px) {
+    /* Change title size */
+    .title {
+        margin-top: 16%;
+        font-size: 20pt;
+    }
+
+    /* Move the navigation bar to the top of the page */
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 8%;
+    }
+
+    /* Set the properties for the items for the navigation bar */
+    #navbar li {
+        aspect-ratio: 1 / 1;
+        height: 92%;
+        width: auto;
+        display: block;
+        text-decoration: none;
+    }
+
+    /* Set the properties for the items of the navigation bar */
+    .navbar-item, #navbar li a {
+        height: inherit;
+        align-self: center;
+        padding: 1%;
+    }
+
+    /* Set the properties for the logo item */
+    .logo {
+        position: absolute;
+        left: 0;
+    }
+
+    /* Set the properties for the profile icon */
+    .profile {
+        position: absolute;
+        right: 0;
+    }
+
+    /* Set width to 100% */
+    #selection, #plot {
+        width: 90%;
+    }
+
+    /* Change sizes in plot */
+    #plot figure div span svg {
+        aspect-ratio: 1 / 1;
+        font-size: 6pt;
+        height: 6pt;
+        width: auto;
+    }
+
+    /* Change font-size in the selection box */
+    #selection h1 {
+        font-size: 14pt;
+    }
+
+    /* Change font-size for the dropdown */
+    #selection label {
+        font-size: 10pt;
+    }
+
+    /* Change the flex-container to go vertically */
+    .flex-container {
+        margin-top: 16%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    /* Make the vertical div into a horizontal one */
+    .vertical {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    /* Change the break row to actually break */
+    .break-row {
+        display: block;
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    /* Change the weather row to be more responsive */
+    .weather-row {
+        align-items: center;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    /* Change the margin for the weather items */
+    .weather{
+        margin: .8%;
+        width: auto
+    }
+
+    /* Change the font-size for the text size of the weather items */
+    .weather p {
+        font-size: 10pt;
+    }
+
+    /* Remove the head of the table */
+    table thead {
+        display: none;
+    }
+
+    /* Change the padding of the tables body */
+    table tbody {
+        padding: 10%;
+    }
+
+    /* Change the display of the table items */
+    table td {
+        display: flex;
+    }
+
+    /* Make the table view differently when it is viewed on a mobile device */
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        width: 120px;
+        min-width: 120px;
+    }
+}
