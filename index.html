@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./sources/css/rSlider.min.css">
+        <script src="./sources/js/rSlider.min.js"></script>
+        <link rel="stylesheet" href="sources/css/style.css">
+        <link rel="stylesheet" href="./sources/css/style_media.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="./sources/images/logo.png"/>
+        <title>Main</title>
+    </head>
+    <body>
+        <ul id="navbar">
+            <li><img class="logo navbar-item" alt="" src="/sources/images/logo.png"></li>
+            <li><a href="#profile"><img class="profile navbar-item" alt="" src="/sources/icons/user.svg"></a></li>
+        </ul>
+        <div class="flex-container">
+            <div id="plot"></div>
+            <script type="module">
+
+                let div_width = document.getElementById("plot").clientWidth;
+
+                const weather = await d3.json("./sources/data/dummy_data.json");
+
+                const plot = Plot.plot({
+                    width: Math.max(div_width, 600),
+                    height: div_width * 0.625,
+                    style: "overflow: visible;",
+                    color: {
+                        type: "categorical",
+                        scheme: "Tableau10",
+                        legend: true
+                    },
+                    x: {domain: [new Date("2023-11-01"), new Date("2023-11-30")], grid: true},
+                    y: {
+                        grid: true,
+                        transform: (t) => t / 10
+                    },
+                    marks: [
+                        Plot.axisX({label: "Date"}),
+                        Plot.axisY({label: "Temperature"}),
+                        Plot.ruleY([-10]),
+                        Plot.lineY(weather, {x: "date", y: "TG", tip: "xy", stroke: "station_code"}),
+                        Plot.text(weather, Plot.selectLast({x: "date", y: "TG", z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
+                    ]
+                });
+                const div = document.querySelector("#plot");
+                div.append(plot);
+            </script>
+            <div id="selection">
+                <h1>Select Device</h1>
+                <input type="checkbox" id="device1" name="device1" value="device1">
+                <label for="device1"> Device 1</label><br>
+                <input type="checkbox" id="device2" name="device2" value="device2">
+                <label for="device2"> Device 2</label><br>
+                <input type="checkbox" id="device3" name="device3" value="device3">
+                <label for="device3"> Device 3</label><br>
+                <input type="checkbox" id="device4" name="device4" value="device4">
+                <label for="device4"> Device 3</label><br>
+
+                <select name="sensors" id="sensors">
+                    <option value="outside_temperature">Outside Temperature</option>
+                    <option value="inside_temperature">Inside Temperature</option>
+                    <option value="humidity">Humidity</option>
+                    <option value="pressure">Pressure</option>
+                    <option value="luminosity">Luminosity</option>
+                </select>
+
+                <div id="day_select">
+                    <p>Number of days to display</p>
+                    <!--<input type="text" id="sampleSlider" />
+                    <script>
+                        var mySlider = new rSlider({
+                            target: '#sampleSlider',
+                            values: [07, 08, 09, 10, 11, 12],
+                            range: true,
+                            tooltip: true,
+                            scale: true,
+                            labels: true,
+                            set: [2010, 2013]
+                        });
+                    </script>-->
+                    <input type="text" id="day-input" name="day-input">
+                </div>
+            </div>
+        </div>
+        <div class="weather-row">
+            <div class="weather">
+                <p>Device 1</p>
+                <p>21°C | 70°F</p>
+            </div>
+            <div class="weather">
+                <p>Device 2</p>
+                <p>21°C | 70°F</p>
+            </div>
+            <div class="break-row"></div>
+            <div class="weather">
+                <p>Device 3</p>
+                <p>21°C | 70°F</p>
+            </div>
+            <div class="weather">
+                <p>Device 4</p>
+                <p>21°C | 70°F</p>
+            </div>
+        </div>
+    </body>
+</html>
