@@ -1,1 +1,11 @@
+<?xml version="1.0"?>
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" version="1.1" xml:space="preserve">
 
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <circle cx="256" cy="128" fill="#ffffff" id="svg_2" r="128"/>
+   <path d="m256,298.67c-105.99,0.11 -191.88,86.01 -192,192c0,11.78 9.55,21.33 21.33,21.33l341.34,0c11.78,0 21.33,-9.55 21.33,-21.33c-0.12,-105.99 -86.01,-191.89 -192,-192z" fill="#ffffff" id="svg_3"/>
+  </g>
+ </g>
+</svg>
