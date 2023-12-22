@@ -23,11 +23,9 @@
         <li><a href="#"> City4</a></li>
     </ul>
     <p><a href="#">Sensors</a></p>
-    <p><a href="#">Members</a></p>
-    <br><br><br><br><br><br>
+    <br><br><br><br><br><br>    <br><br><br><br><br>
     <a href="#profile">
-        <image class="logo" src="/sources/icons/user.svg"
-               style="height: 75px;width: auto; align-content: center;"></image>
+        <image id="profile" src="/sources/icons/user.svg"></image>
     </a>
 </div>
 
@@ -36,7 +34,6 @@
 <div class="flex-container">
     <div id="plot"></div>
     <script type="module" style="width: 80%">
-
         const weather = await d3.json("./sources/data/dummy_data.json");
         let div_width = document.getElementById("plot").clientWidth;
 

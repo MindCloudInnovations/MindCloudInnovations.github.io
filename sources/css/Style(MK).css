@@ -41,7 +41,6 @@ body {
 }
 
 #selected {
-    color: purple;
     background: lightblue;
     width: 100%;
 }
@@ -170,15 +169,17 @@ body {
 
 
 .logo {
-    float: initial;
     width: 85%;
     height: auto;
-    padding-bottom: 50px;
     padding-left: 5px;
     padding-top: 5px;
 
 }
-
+.sidenav #profile {
+    width: 93%;
+    height: auto;
+    float: right;
+}
 .profile, .saxion-logo {
     float: right;
 }
