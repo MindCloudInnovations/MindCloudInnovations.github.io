@@ -89,6 +89,80 @@
 #members_btn{
     left: 41%;
 }
+.sidenav {
+    height: 104%;
+    width: 8%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 28, 76, 0.25);
+    margin: 0;
+    padding: 0;
+    left:0;
+}
+#selection, #plot {
+    margin: 5px;
+}
+
+/* Set the properties for the selection div */
+#selection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2.5%;
+    justify-content: space-between;
+}
+
+.sidenav {
+    text-align: left;
+    overflow: auto;
+}
+
+#selected {
+    background: lightblue;
+    width: 100%;
+}
+
+#next {
+    rotate: 180deg;
+}
+.logo {
+    width: 85%;
+    height: auto;
+    padding-left: 5px;
+    padding-top: 5px;
+
+}
+.sidenav #profile {
+    width: 93%;
+    height: auto;
+    float: right;
+}
+.sidenav p {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+    font-size: 150%;
+}
+.sidenav a{
+    text-decoration: none;
+    display: block;
+    color: #ffffff;
+
+    max-width: 100%
+}
+
+.sidenav li {
+    text-decoration: none;
+    display: block;
+    font-size: 125%;
+    text-align: left;
+}
+
+.sidenav a:hover {
+    color: #818181;
+}
 
 #device_btn{
     left: 51%;

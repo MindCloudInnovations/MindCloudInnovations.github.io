@@ -33,7 +33,20 @@ body {
     padding: 0;
     left:0;
 }
+#selection, #plot {
+    margin: 5px;
+}
 
+/* Set the properties for the selection div */
+#selection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2.5%;
+    justify-content: space-between;
+}
 
 .sidenav {
     text-align: left;
@@ -51,27 +64,27 @@ body {
 
 .sidenav p {
     text-decoration: none;
-    color: #818181;
+    color: #ffffff;
     display: block;
     font-size: 150%;
 }
 .sidenav a{
     text-decoration: none;
-    color: #818181;
+    color: #ffffff;
     display: block;
     max-width: 100%
 }
 
 .sidenav li {
     text-decoration: none;
-    color: #818181;
     display: block;
+    color: #ffffff;
     font-size: 125%;
     text-align: left;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #818181;
 }
 
 .Central_password {

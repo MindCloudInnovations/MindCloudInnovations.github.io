@@ -10,11 +10,23 @@
     <title>Profile page</title>
 </head>
 <body>
-
-<div id="navbar">
-    <image class="logo navbar_item" src="/sources/images/logo.png"></image>
-    <a href="https://www.saxion.nl/"><image class="saxion-logo navbar_item" src="/sources/images/saxion_logo.png"></image></a>
+<div class="sidenav">
+    <image class="logo" src="/sources/images/logo.png"></image>
+    <p> <a href="index.html">Main </a></p>
+    <p>City</p>
+    <ul>
+        <li><a href="City.html"> City1</a></li>
+        <li><a href="#"> City2</a></li>
+        <li><a href="#"> City3</a></li>
+        <li><a href="#"> City4</a></li>
+    </ul>
+    <p><a href="device_info.html">Sensors</a></p>
+    <br><br><br><br><br><br>    <br><br><br><br><br>
+    <a href="#profile">
+        <image id="profile" src="/sources/icons/user.svg"></image>
+    </a>
 </div>
+
 
 <div class="flex-container">
 
@@ -27,7 +39,7 @@
     <button class="change_btn" id="username_btn">Change Username</button>
     <button class="change_btn" id="password_btn">Change Password</button>
 
-    <button class="down_btn" id="device_btn_prof">Members</button>
+    <button class="down_btn" id="device_btn_prof">Conform</button>
 
     <select name="Devices" id="Devices">
         <option value="pinned_city" disabled selected>Pinned City</option>

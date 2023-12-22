@@ -38,27 +38,27 @@ body {
 
 #navbar p {
     text-decoration: none;
-    color: #818181;
+    color: #ffffff;
     display: block;
     font-size: 150%;
 }
 #navbar a{
     text-decoration: none;
-    color: #818181;
+    color: #ffffff;
     display: block;
     max-width: 100%
 }
 
 #navbar li {
     text-decoration: none;
-    color: #818181;
     display: block;
+    color: #ffffff;
     font-size: 125%;
     text-align: left;
 }
 
 #navbar a:hover {
-    color: #f1f1f1;
+    color: #818181;
 }
 /* Set the properties for the items for the navigation bar */
 #navbar li {
