@@ -75,7 +75,6 @@
     padding: 1em;
     border: 1px solid black;
     transition: 0.3s ease;
-
     top:250%;
     height:3%;
     width: 8%;
@@ -138,6 +137,8 @@
     width: 93%;
     height: auto;
     float: right;
+    position: absolute;
+    bottom: 30px;
 }
 .sidenav p {
     text-decoration: none;
