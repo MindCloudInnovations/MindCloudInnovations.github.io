@@ -33,13 +33,15 @@
 
 <div class="flex-container">
     <div id="plot"></div>
-    <script type="module" style="width: 80%">
-        const weather = await d3.json("./sources/data/dummy_data.json");
+    <script type="module">
+
         let div_width = document.getElementById("plot").clientWidth;
 
+        const weather = await d3.json("./sources/data/dummy_data.json");
+
         const plot = Plot.plot({
-            length: div_width,
-            width: div_width * 0.625,
+            width: Math.max(div_width, 600),
+            height: div_width * 0.625,
             style: "overflow: visible;",
             color: {
                 type: "categorical",
@@ -56,23 +58,19 @@
                 Plot.axisY({label: "Temperature"}),
                 Plot.ruleY([-10]),
                 Plot.lineY(weather, {x: "date", y: "TG", tip: "xy", stroke: "station_code"}),
-                Plot.text(weather, Plot.selectLast({
-                    x: "date",
-                    y: "TG",
-                    z: "station_code",
-                    text: "station_code",
-                    textAnchor: "start",
-                    dx: 3
-                }))
+                Plot.text(weather, Plot.selectLast({x: "date", y: "TG", z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
             ]
         });
         const div = document.querySelector("#plot");
         div.append(plot);
     </script>
-
     </div>
 </div>
 <div class="weather-row">
+    <div id="day_select" style="margin-left: 50px;padding: 5px;height: 80px">
+        <p>Num days</p>
+        <input type="text" id="day-input" name="day-input" style="width: 40px">
+    </div>
     <div class="weather">
         <p>int-temp</p>
         <p>21°C | 70°F</p>
