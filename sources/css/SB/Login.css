@@ -1,0 +1,74 @@
+#username{
+    top: 80%;
+}
+
+#password{
+    top: 110%;
+}
+
+#profile_icon{
+    top: 84%;
+}
+
+#key_icon{
+    top: 114%;
+}
+
+.confirm_btn {
+    top: 165%;
+}
+
+#under_header{
+    align-self: center;
+    top: 47%;
+}
+
+#secondary_text{
+    align-self: center;
+    top: 215%;
+}
+
+#forgot_btn{
+    z-index: 2;
+    border-radius: 10px;
+    line-height: 10%;
+    cursor: pointer;
+    left: 53%;
+    font-size: 9px;
+    position: absolute;
+    background-color: transparent;
+    color:black;
+    padding: 1em;
+    border: 1px solid transparent;
+    outline: none;
+    resize: none;
+    height:2%;
+    width: 8%;
+    transition: 0.15s ease;
+    top: 133%;
+}
+
+#Sign_redirect_btn{
+    z-index: 2;
+    border-radius: 10px;
+    line-height: 10%;
+    cursor: pointer;
+    left: 44%;
+    font-size: 31px;
+    position: absolute;
+    background-color: transparent;
+    color:#0B7FA4;
+    padding: 1em;
+    border: 1px solid transparent;
+    outline: none;
+    resize: none;
+    height:5%;
+    width: 12%;
+    transition: 0.15s ease;
+    top: 220%;
+}
+#Sign_redirect_btn:hover{
+    font-weight: 550;
+    font-size: 28px;
+    color: black;
+}

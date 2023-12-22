@@ -1,0 +1,87 @@
+.flex-container h1 {
+    z-index: 2;
+    align-self: center;
+    font-size: 30pt;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #0B7FA4;
+    text-shadow: 2px 0 0 #FFFFFF,3px 0 0 #0B7FA4;
+}
+
+.flex-container label {
+    font-size: 20pt;
+}
+
+#container{
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    left: 562px;
+    opacity: 1;
+    background-color: #FFFFFF;
+    border-radius: 5%;
+    height: 500px;
+    width: 25%;
+    box-shadow: 7px 7px 1px rgba(176, 176, 180,100%);
+}
+
+.text{
+    z-index: 2;
+    position: absolute;
+    font-size: 7pt;
+    margin-top: 2px;
+}
+
+.input_txt{
+    border-radius: 10px;
+    z-index: 2;
+    left: 41%;
+    font-size: 16px;
+    position: absolute;
+    background-color: #dddddd;
+    color:#666666;
+    padding: 1em;
+    border: 1px solid black;
+    outline: none;
+    resize: none;
+    height:6%;
+    width: 17%;
+}
+
+.flex-container textarea::placeholder{
+    z-index: 2;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.icon{
+    z-index: 2;
+    left: 38.5%;
+    position: absolute;
+    height:28px;
+    width: 28px;
+}
+
+.confirm_btn{
+    border-radius: 10px;
+    line-height: 10%;
+    cursor: pointer;
+    z-index: 2;
+    left: 44%;
+    font-size: 21px;
+    position: absolute;
+    background-color: #0B7FA4;
+    color:#FFFFFF;
+    padding: 1em;
+    border: 1px solid black;
+    outline: none;
+    resize: none;
+    height:10%;
+    width: 12%;
+    transition: 0.3s ease;
+}
+
+.confirm_btn:hover{
+    background-color: white;
+    color: #0B7FA4;
+}

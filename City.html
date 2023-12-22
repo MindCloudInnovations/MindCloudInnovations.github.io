@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./sources/css/rSlider.min.css">
+    <script src="./sources/js/rSlider.min.js"></script>
+    <link rel="stylesheet" href="sources/css/Style(MK).css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./sources/images/logo.png"/>
+    <title>City1</title>
+</head>
+<body>
+<div class="sidenav">
+    <image class="logo" src="/sources/images/logo.png"></image>
+    <p> <a>Main </a></p>
+    <p>City</p>
+    <ul>
+        <li><a href="#" id="selected"> City1</a></li>
+        <li><a href="#"> City2</a></li>
+        <li><a href="#"> City3</a></li>
+        <li><a href="#"> City4</a></li>
+    </ul>
+    <p><a href="#">Sensors</a></p>
+    <p><a href="#">Members</a></p>
+    <br><br><br><br><br><br>
+    <a href="#profile">
+        <image class="logo" src="/sources/icons/user.svg"
+               style="height: 75px;width: auto; align-content: center;"></image>
+    </a>
+</div>
+
+
+
+<div class="flex-container">
+    <div id="plot"></div>
+    <script type="module" style="width: 80%">
+
+        const weather = await d3.json("./sources/data/dummy_data.json");
+        let div_width = document.getElementById("plot").clientWidth;
+
+        const plot = Plot.plot({
+            length: div_width,
+            width: div_width * 0.625,
+            style: "overflow: visible;",
+            color: {
+                type: "categorical",
+                scheme: "Tableau10",
+                legend: true
+            },
+            x: {domain: [new Date("2023-11-01"), new Date("2023-11-30")], grid: true},
+            y: {
+                grid: true,
+                transform: (t) => t / 10
+            },
+            marks: [
+                Plot.axisX({label: "Date"}),
+                Plot.axisY({label: "Temperature"}),
+                Plot.ruleY([-10]),
+                Plot.lineY(weather, {x: "date", y: "TG", tip: "xy", stroke: "station_code"}),
+                Plot.text(weather, Plot.selectLast({
+                    x: "date",
+                    y: "TG",
+                    z: "station_code",
+                    text: "station_code",
+                    textAnchor: "start",
+                    dx: 3
+                }))
+            ]
+        });
+        const div = document.querySelector("#plot");
+        div.append(plot);
+    </script>
+</div>
+<div class="weather-row">
+    <div class="weather">
+        <p>int-temp</p>
+        <p>21°C | 70°F</p>
+    </div>
+    <div class="weather">
+        <p>out-temp</p>
+        <p>21°C | 70°F</p>
+    </div>
+    <div class="weather">
+        <p>humidaty</p>
+        <p>42%</p>
+    </div>
+    <div class="weather">
+        <p>presue</p>
+        <p>52p</p>
+    </div>
+    <div class="weather">
+        <p>lumnastiy</p>
+        <p>64%</p>
+    </div>
+</div>
+</body>
+</html>
