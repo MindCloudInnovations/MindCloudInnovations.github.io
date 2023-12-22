@@ -192,6 +192,8 @@ body {
     width: 93%;
     height: auto;
     float: right;
+    position: absolute;
+    bottom: 30px;
 }
 .profile, .saxion-logo {
     float: right;
