@@ -34,75 +34,55 @@
                     <th>Battery Status</th>
                     <th>Battery Voltage</th>
                     <th>Location</th>
-                    <th>Bandwidth</th>
-                    <th>Hardware Version</th>
-                    <th>Firmware Version</th>
+                    <th>Band ID</th>
+                    <th>Hardware</th>
+                    <th>Firmware</th>
+                    <th>Gateway ID</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Altitude</th>
+                    <th>Connection ID</th>
+                    <th>RSSI</th>
+                    <th>Channel RSSI</th>
+                    <th>SNR</th>
+                    <th>Spreading factor</th>
+                    <th>Consumed airtime</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td data-label="Device ID">8999078</td>
-                    <td data-label="Model ID">9087909</td>
-                    <td data-label="Battery Status">66%</td>
-                    <td data-label="Battery Voltage">3.0 V</td>
-                    <td data-label="Location">Saxion</td>
-                    <td data-label="Bandwidth">10 kB/s</td>
-                    <td data-label="Hardware Version">V1.78</td>
-                    <td data-label="Firmware Version">V2.98</td>
-                </tr>
-                <tr>
-                    <td data-label="Device ID">8999078</td>
-                    <td data-label="Model ID">9087909</td>
-                    <td data-label="Battery Status">66%</td>
-                    <td data-label="Battery Voltage">3.0 V</td>
-                    <td data-label="Location">Saxion</td>
-                    <td data-label="Bandwidth">10 kB/s</td>
-                    <td data-label="Hardware Version">V1.78</td>
-                    <td data-label="Firmware Version">V2.98</td>
-                </tr>
-                <tr>
-                    <td data-label="Device ID">8999078</td>
-                    <td data-label="Model ID">9087909</td>
-                    <td data-label="Battery Status">66%</td>
-                    <td data-label="Battery Voltage">3.0 V</td>
-                    <td data-label="Location">Saxion</td>
-                    <td data-label="Bandwidth">10 kB/s</td>
-                    <td data-label="Hardware Version">V1.78</td>
-                    <td data-label="Firmware Version">V2.98</td>
-                </tr>
-                <tr>
-                    <td data-label="Device ID">8999078</td>
-                    <td data-label="Model ID">9087909</td>
-                    <td data-label="Battery Status">66%</td>
-                    <td data-label="Battery Voltage">3.0 V</td>
-                    <td data-label="Location">Saxion</td>
-                    <td data-label="Bandwidth">10 kB/s</td>
-                    <td data-label="Hardware Version">V1.78</td>
-                    <td data-label="Firmware Version">V2.98</td>
-                </tr>
-                <tr>
-                    <td data-label="Device ID">8999078</td>
-                    <td data-label="Model ID">9087909</td>
-                    <td data-label="Battery Status">66%</td>
-                    <td data-label="Battery Voltage">3.0 V</td>
-                    <td data-label="Location">Saxion</td>
-                    <td data-label="Bandwidth">10 kB/s</td>
-                    <td data-label="Hardware Version">V1.78</td>
-                    <td data-label="Firmware Version">V2.98</td>
-                </tr>
-                <tr>
-                    <td data-label="Device ID">8999078</td>
-                    <td data-label="Model ID">9087909</td>
-                    <td data-label="Battery Status">66%</td>
-                    <td data-label="Battery Voltage">3.0 V</td>
-                    <td data-label="Location">Saxion</td>
-                    <td data-label="Bandwidth">10 kB/s</td>
-                    <td data-label="Hardware Version">V1.78</td>
-                    <td data-label="Firmware Version">V2.98</td>
-                </tr>
+
             </tbody>
         </table>
     </div>
+    <script>
+        const response = await fetch("./sources/data/device_data.json");
+        const data = await response.json();
+
+        let table = document.getElementById('table');
+        data.forEach(function(object) {
+            let tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + object.subject + '</td>' +
+                '<td label="Device ID">' + object.device_id + '</td>' +
+                '<td label="Model ID">' + object.model_id + '</td>' +
+                '<td label="Battery status">' + object.battery_status + '</td>';
+                '<td label="Battery voltage">' + object.battery_voltage + '</td>' +
+                '<td label="Location">' + object.location + '</td>' +
+                '<td label="Band ID">' + object.band_id + '</td>';
+                '<td label="Hardware version">' + object.hardware_version + '</td>' +
+                '<td label="Software version">' + object.software_version + '</td>' +
+                '<td label="Gateway ID">' + object.gateway_id + '</td>';
+                '<td label="Latitude">' + object.latitude + '</td>' +
+                '<td label="Longitude">' + object.longitude + '</td>' +
+                '<td label="Altitude">' + object.altitude + '</td>';
+                '<td label="Connection ID">' + object.connection_id + '</td>' +
+                '<td label="RSSI">' + object.rssi + '</td>' +
+                '<td label="Channel RSSI">' + object.channel_rssi + '</td>';
+                '<td label="SNR">' + object.snr + '</td>' +
+                '<td label="Spreading factor">' + object.spreading_factor + '</td>' +
+                '<td label="Consumed airtime">' + object.consumed_airtime + '</td>';
+            table.appendChild(tr);
+        });
+    </script>
 
 </body>
 

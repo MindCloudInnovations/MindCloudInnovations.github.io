@@ -51,22 +51,58 @@
         </div>
         <div class="weather-row">
             <div class="weather">
-                <a class="device_links">Device 1</a>
-                <p>21°C | 70°F</p>
+                <a id="device_1" class="device_links">Device 1</a>
+                <p id="device_1_temp">21°C</p>
             </div>
             <div class="weather">
-                <a class="device_links">Device 2</a>
-                <p>21°C | 70°F</p>
+                <a id="device_2" class="device_links">Device 2</a>
+                <p id="device_2_temp">21°C</p>
             </div>
             <div class="break-row"></div>
             <div class="weather">
-                <a class="device_links">Device 3</a>
-                <p>21°C | 70°F</p>
+                <a id="device_3" class="device_links">Device 3</a>
+                <p id="device_3_temp">21°C</p>
             </div>
             <div class="weather">
-                <a class="device_links">Device 4</a>
-                <p>21°C | 70°F</p>
+                <a id="device_4" class="device_links">Device 4</a>
+                <p id="device_4_temp">21°C</p>
             </div>
         </div>
+        <script type="module">
+            const response = await fetch("./sources/data/dummy_data.json");
+            let data = await response.json(),
+                o = groupBy(data, 'station_code'),
+                latest_1 = o[269].reduce(function (r, a) {
+                    return r.date >= a.date ? r : a;
+                }),
+                latest_2 = o[275].reduce(function (r, a) {
+                    return r.date >= a.date ? r : a;
+                }),
+                latest_3 = o[279].reduce(function (r, a) {
+                    return r.date >= a.date ? r : a;
+                }),
+                latest_4 = o[290].reduce(function (r, a) {
+                    return r.date >= a.date ? r : a;
+                });
+
+            const unique = [...new Set(data.map(item => item.station_code))];
+
+            document.getElementById("device_1").innerHTML = unique[0];
+            document.getElementById("device_1_temp").innerHTML = latest_1.TG + '°C';
+            document.getElementById("device_2").innerHTML = unique[1];
+            document.getElementById("device_2_temp").innerHTML = latest_2.TG + '°C';
+            document.getElementById("device_3").innerHTML = unique[2];
+            document.getElementById("device_3_temp").innerHTML = latest_3.TG + '°C';
+            document.getElementById("device_4").innerHTML = unique[3];
+            document.getElementById("device_4_temp").innerHTML = latest_4.TG + '°C';
+
+            function groupBy(arr, property) {
+                return arr.reduce(function(memo, x) {
+                    if (!memo[x[property]]) { memo[x[property]] = []; }
+                    memo[x[property]].push(x);
+                    return memo;
+                }, {});
+            }
+        </script>
     </body>
 </html>
