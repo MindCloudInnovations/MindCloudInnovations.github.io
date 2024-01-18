@@ -1,0 +1,160 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+#prediction-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #A4D3DE;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#current-time {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#current-temperature {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#temperature-chart {
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    overflow: visible;
+
+}
+
+    #navbar {
+        margin: .7%;
+        height: 8%;
+        overflow: hidden;
+    }
+
+    .navbar_item {
+        height: 100%;
+    }
+
+    .logo {
+        width: 85%;
+        height: auto;
+        padding-left: 5px;
+        padding-top: 5px;
+
+    }
+    .sidenav #profile {
+        width: 93%;
+        height: auto;
+        float: right;
+        position: absolute;
+        bottom: 30px;
+    }
+    .profile, .saxion-logo {
+        float: right;
+    }
+
+    .title {
+        font-size: 40pt;
+        text-align: center;
+        color: #0B7FA4;
+        text-shadow: 1px 0 0 #FFFFFF, 2px 0 0 #0B7FA4;
+    }
+
+    .flex-container {
+        margin: 3% auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: fit-content;
+
+    }
+
+    .member-icon {
+        height: 40px;
+        width: auto;
+
+    }
+
+    .member-email {
+        width: 350px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    .sidenav {
+        height: 104%;
+        width: 8%;
+        position: fixed;
+        top: 0;
+        background-color: rgba(0, 28, 76, 0.25);
+        margin: 0;
+        padding: 0;
+        left:0;
+    }
+    #selection, #plot {
+        margin: 5px;
+    }
+
+    #selection {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 10px;
+        text-align: center;
+        padding: 2.5%;
+        justify-content: space-between;
+    }
+
+    .sidenav {
+        text-align: left;
+        overflow: auto;
+    }
+
+    #selected {
+        background: #5BDFFC;
+        width: 100%;
+        color: white;
+    }
+
+    #next {
+        rotate: 180deg;
+    }
+
+    .sidenav p {
+        text-decoration: none;
+        color: #ffffff;
+        display: block;
+        font-size: 150%;
+    }
+    .sidenav a{
+        text-decoration: none;
+        color: #ffffff;
+        display: block;
+        max-width: 100%
+    }
+
+    .sidenav li {
+        text-decoration: none;
+        display: block;
+        color: #ffffff;
+        font-size: 125%;
+        text-align: left;
+    }
+
+    .sidenav a:hover {
+        color: #818181;
+    }
