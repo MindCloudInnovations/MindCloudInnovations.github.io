@@ -14,9 +14,13 @@
 
 #container{
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%; /* Adjust the maximum width as needed */
+    padding: 20px; /* Adjust padding as needed */
+    box-sizing: border-box;
     z-index: 2;
-    top: 12px;
-    left: 562px;
     opacity: 1;
     background-color: #FFFFFF;
     border-radius: 5%;

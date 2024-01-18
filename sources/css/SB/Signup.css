@@ -1,37 +1,38 @@
-#e-mail{
-    top: 51%;
+form #e-mail{
+    top: 110%;
 }
-#password{
-    top: 74%;
+form #password{
+    top: 155%;
 }
-#repeat_password{
-    top: 98%;
+form #repeat_password{
+    top: 200%;
 }
-#phone_number{
-    top: 122%;
+form #phone_number{
+    top: 245%;
 }
 
 #profile_icon{
-    top: 56%;
+    top: 116%;
 }
 #key_icon{
-    top: 79%;
+    top: 161%;
 }
 #second_key_icon{
-    top: 102%;
+    top: 206%;
 }
 
-.confirm_btn {
-    top: 158%;
+form .confirm_btn {
+    top: 320%;
 }
 
 #under_header{
     align-self: center;
-    top:35.5%;
+    top:70%;
 }
 
 #secondary_text{
     left: 41%;
-    top: 141%;
+    top: 277%;
 }
+
 

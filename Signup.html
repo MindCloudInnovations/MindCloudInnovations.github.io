@@ -17,29 +17,34 @@
     <a href="https://www.saxion.nl/"><image class="saxion-logo navbar_item" src="/sources/images/saxion_logo.png"></image></a>
 </div>
 
+<div id="container"></div>
+
 <div class="flex-container">
 
-    <div id="container"></div>
     <h1>Sign up</h1>
     <p class="text" id="under_header">Sign into your account</p>
     <p class="text" id="secondary_text">Optional</p>
 
-    <label for="e-mail">Username:</label>
-    <input class="input_txt" type="email" id="e-mail" placeholder="E-mail::">
-    <label for="password">Password:</label>
-    <input class="input_txt" type="password" id="password" placeholder="Password:">
-    <label for="repeat_password">Repeat Password:</label>
-    <input class="input_txt" type="password" id="repeat_password" placeholder="Repeat Password:">
-    <label for="phone_number">Phone Number:</label>
-    <input class="input_txt" type="number" id="phone_number" placeholder="Phone number:">
+    <form id="signUpForm" action="/register" method="post" onsubmit="validateAndSignUp(event)">
+        <label for="e-mail"></label>
+        <input class="input_txt" type="email" id="e-mail" placeholder="E-mail:">
+        <label for="password"></label>
+        <input class="input_txt" type="password" id="password" placeholder="Password:">
+        <label for="repeat_password"></label>
+        <input class="input_txt" type="password" id="repeat_password" placeholder="Repeat Password:">
+        <label for="phone_number"></label>
+        <input class="input_txt" type="number" id="phone_number" placeholder="Phone number:">
+
+         <button class="confirm_btn" type="submit" value="Confirm">Confirm</button>
+    </form>
 
     <img class="icon" id="profile_icon" src="/sources/icons/user_blue.svg" alt="Profile icon">
     <img class="icon" id="key_icon" src="/sources/icons/key_icon.svg" alt="Key icon">
     <img class="icon" id="second_key_icon" src="/sources/icons/key_icon.svg" alt="Key icon">
 
-    <input class="confirm_btn" type="submit" value="Confirm">
-
 </div>
+
+<script src="sources/js/signUp.js"></script>
 
 </body>
 </html>
