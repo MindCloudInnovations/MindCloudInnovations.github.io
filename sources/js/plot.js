@@ -51,7 +51,20 @@ function get_sensor() {
 document.getElementById("1-day").addEventListener("click", function () { render_graph(1, get_sensor())});
 document.getElementById("3-days").addEventListener("click", function () { render_graph(3, get_sensor())});
 document.getElementById("7-days").addEventListener("click", function () { render_graph(7, get_sensor())});
-document.getElementById("day-input").addEventListener("keydown", function () { render_graph(get_input(), get_sensor())});
+// Get the input field
+let input = document.getElementById("day-input");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        render_graph(get_input(), get_sensor());
+    }
+});
+
 
 window.onload = function() {
     render_graph(1, get_sensor());
