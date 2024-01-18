@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/d3@7">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6">
+     <link rel="stylesheet" href="./sources/css/rSlider.min.css">
+     <link rel="stylesheet" href="./sources/css/style(SJ).css">
+     <link rel="stylesheet" href="./sources/css/style_media.css">
+     <link rel="stylesheet" href="./sources/css/Style(AK).css">
+     <title>Temperature Prediction</title>
+ </head>
+ <body>
+ <!--<div id="header">
+     <h1>Future Readings (0% Acc)</h1>
+ </div> -->
+
+ <div class="sidenav">
+     <image class="logo" src="/sources/images/logo.png"></image><br><br><br><br><br><br>
+     <p> <a href="index.html">Main </a></p>
+     <p>City</p>
+
+     <ul>
+         <li><a href="City.html"> City1</a></li>
+         <li><a href="City.html"> City2</a></li>
+         <li><a href="City.html"> City3</a></li>
+         <li><a href="City.html"> City4</a></li>
+     </ul>
+     <p id="selected">Prediction</p>
+     <p><a href="device_info.html">Sensors</a></p>
+     <p>Members</p>
+     <br><br><br><br><br><br>    <br>
+     <a href="#profile">
+         <image id="profile" src="/sources/icons/user.svg"></image>
+     </a>
+ </div>
+
+ <div id="prediction-container">
+     <div id="current-time">Current Time: <span id="time">--:--</span></div>
+     <div id="current-temperature">Current Temperature: <span id="temperature">-- °C</span></div>
+     <canvas id="temperature-chart"></canvas>
+ </div>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0"></script>
+ <script src="./sources/JS/Prediction(AK).js"></script>
+ </body>
+ </html>
