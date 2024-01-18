@@ -53,6 +53,10 @@ document.getElementById("3-days").addEventListener("click", function () { render
 document.getElementById("7-days").addEventListener("click", function () { render_graph(7, get_sensor())});
 document.getElementById("day-input").addEventListener("keydown", function () { render_graph(get_input(), get_sensor())});
 
+window.onload = function() {
+    render_graph(1, get_sensor());
+};
+
 
 
 
