@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
-        <script src="./sources/js/plot.js"></script>
+        <!--<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>-->
         <meta charset="UTF-8">
         <link rel="stylesheet" href="sources/css/style(SJ).css">
         <link rel="stylesheet" href="./sources/css/style_media.css">
@@ -12,6 +11,7 @@
         <title>Main</title>
     </head>
     <body>
+        <script type="module" src="./sources/js/plot.js" defer></script>
         <ul id="navbar">
             <li><img class="navbar-item" alt="" src="/sources/images/logo.png"></li>
             <p><a href="index.html" id="selected">Main</a></p>
@@ -27,51 +27,13 @@
         </ul>
         <div class="flex-container">
             <div id="plot"></div>
-            <script type="module" defer>
-                let div_width = document.getElementById("plot").clientWidth;
-
-                const weather = await d3.json("./sources/data/dummy_data.json");
-
-                let sensor = document.getElementById("sensors");
-                let sensor_select = sensor.value;
-
-                let today = new Date();
-                let first_day = new Date();
-                first_day.setDate(today.getDate() - day_select);
-
-
-                const plot = Plot.plot({
-                    width: Math.max(div_width, 600),
-                    height: div_width * 0.625,
-                    style: "overflow: visible;",
-                    color: {
-                        type: "categorical",
-                        scheme: "Tableau10",
-                        legend: true
-                    },
-                    x: {domain: [first_day, today], grid: true},
-                    y: {
-                        grid: true,
-                        transform: (t) => t / 10
-                    },
-                    marks: [
-                        Plot.axisX({label: "Date"}),
-                        Plot.axisY({label: sensor_select}),
-                        Plot.ruleY([-10]),
-                        Plot.lineY(weather, {x: "date", y: sensor_select, tip: "xy", stroke: "station_code"}),
-                        Plot.text(weather, Plot.selectLast({x: "date", y: sensor_select, z: "station_code", text: "station_code", textAnchor: "start", dx: 3}))
-                    ]
-                });
-                const div = document.querySelector("#plot");
-                div.append(plot);
-            </script>
             <div id="selection">
                 <h1>Select Device</h1>
 
                 <select name="sensors" id="sensors">
                     <optgroup label="Temperature">
-                        <option value="outside_temperature">Outside Temperature</option>
-                        <option value="inside_temperature">Inside Temperature</option>
+                        <option value="TG">Outside Temperature</option>
+                        <option value="insideTemp">Inside Temperature</option>
                     </optgroup>
                     <option value="humidity">Humidity</option>
                     <option value="pressure">Pressure</option>
@@ -80,10 +42,10 @@
 
                 <div id="day_select">
                     <p>Number of days to display</p>
-                    <button id="1-day" class="day-button" onclick="select_days(1)">1 day</button>
-                    <button id="3-days" class="day-button" onclick="select_days(3)">3 days</button>
-                    <button id="7-days" class="day-button" onclick="select_days(7)">7 days</button>
-                    <input type="text" id="day-input" name="day-input" onkeydown="select_days_input()">
+                    <button id="1-day" class="day-button">1 day</button>
+                    <button id="3-days" class="day-button">3 days</button>
+                    <button id="7-days" class="day-button">7 days</button>
+                    <input type="text" id="day-input" name="day-input">
                 </div>
             </div>
         </div>
