@@ -88,13 +88,13 @@
             const unique = [...new Set(data.map(item => item.station_code))];
 
             document.getElementById("device_1").innerHTML = unique[0];
-            document.getElementById("device_1_temp").innerHTML = latest_1.TG + '°C';
+            document.getElementById("device_1_temp").innerHTML = latest_1.TG/10 + '°C';
             document.getElementById("device_2").innerHTML = unique[1];
-            document.getElementById("device_2_temp").innerHTML = latest_2.TG + '°C';
+            document.getElementById("device_2_temp").innerHTML = latest_2.TG/10 + '°C';
             document.getElementById("device_3").innerHTML = unique[2];
-            document.getElementById("device_3_temp").innerHTML = latest_3.TG + '°C';
+            document.getElementById("device_3_temp").innerHTML = latest_3.TG/10 + '°C';
             document.getElementById("device_4").innerHTML = unique[3];
-            document.getElementById("device_4_temp").innerHTML = latest_4.TG + '°C';
+            document.getElementById("device_4_temp").innerHTML = latest_4.TG/10 + '°C';
 
             function groupBy(arr, property) {
                 return arr.reduce(function(memo, x) {
